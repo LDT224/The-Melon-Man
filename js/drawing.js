@@ -76,7 +76,12 @@ game.redraw = function () {
 	// Draw the player
 	game.drawPlayer()
 
-	game.counter.innerHTML = "A game by Karol Swierczek | Controls: A, D / arrows and SPACE | Points: " + Math.round(-game.player.highestY / (3 * game.options.tileHeight)), game.canvas.width - 50, game.canvas.height - 12
+	//Increase x5 score + display Score
+	game.counter.innerHTML = "A game by Karol Swierczek - Le Doan Tai | Controls: A, D / arrows and SPACE | Points: " + Math.round(-game.player.highestY * 5 / (3 * game.options.tileHeight)), game.canvas.width - 50, game.canvas.height - 12
+	game.context.font = "15px superscript"
+	game.context.textAlign = "center"
+	game.context.fillStyle = "green"
+	game.context.fillText("Score: " + Math.round(-game.player.highestY * 5 / (3 * game.options.tileHeight)), game.canvas.width / 2, game.canvas.height / 2 - 120)
 }
 
 game.requestRedraw = function () {
